@@ -1,0 +1,15 @@
+<%= form_for([@project, @project.discussions.build]) do |f| %>
+    <form class="row g-3">
+      <div class="form-group">
+        <% f.label :body %><br/>
+        <%= f.text_area :body, class:'form-control' %>
+      </div><br/>
+      <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <%= f.submit 'Save', class:'btn btn-info' %>
+      </div>
+      <div class="col-auto">
+        <% f.label :user_email %><br/>
+        <%= f.text_field :user_email, class:'form_control', id: :current_user_id, class:"form-control",value: current_user.email, type: :hidden %>
+      </div>
+    </form>
+<% end %>

@@ -1,0 +1,18 @@
+<h5>Messages</h5>
+<% if @discussion.comments.any? %>
+      <% @discussion.comments.each do |comment| %>
+        <div class="card ml-5">
+          <div class="card-body">
+            <button type="button" class="btn btn-light btn-sm" disabled>
+              <img src="https://img.favpng.com/2/16/1/pens-fountain-pen-paper-clip-art-png-favpng-P2r5sPmAdUXCfX2LmsFbQcGc5.jpg" alt="Logo" width="20" height="20" class="d-inline-block align-text-top">
+              <%= current_user.email %>
+            </button><br/>
+            <%= comment.body %><br/>
+            <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+            <%= link_to "Edit", edit_project_discussion_comment_path(@project, @discussion, @comment), class:"btn btn-secondary btn-sm" %>
+            <%= button_to "Delete", project_discussion_comment_path(@project, @discussion, @comment), method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-secondary btn-sm" %>
+            </div>
+            </div>
+        </div>
+      <% end %>
+  <% end %>

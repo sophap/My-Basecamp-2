@@ -1,0 +1,20 @@
+<figure class="text-center">
+    <blockquote class="blockquote">
+      <h1 class="fw-bold">Edit</h1>
+      <button type="button" class="btn btn-light btn-sm" disabled>
+        <img src="https://img.favpng.com/2/16/1/pens-fountain-pen-paper-clip-art-png-favpng-P2r5sPmAdUXCfX2LmsFbQcGc5.jpg" alt="Logo" width="20" height="20" class="d-inline-block align-text-top">
+        <%= current_user.email %>
+      </button>
+    </blockquote>
+  </figure> 
+  <%= form_with(model: [@project, @discussion], local: true) do |form| %>
+    <%= form.text_area :body, class:'form-control' %><br/>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <%= form.submit "Update", class:'btn btn-info' %>
+    <%= link_to "Back", project_path(@project), class:"btn btn-secondary" %>
+    </div>
+  <% end %>
+  
+  
+  
+  

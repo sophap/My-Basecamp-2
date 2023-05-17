@@ -1,0 +1,13 @@
+<div class="card w-100">
+    <div class="card-body">
+    <%= form_for [@project, @discussion, Comment.new], url: project_discussion_comments_path(@project, @discussion) do |f| %>
+  <div class="form-group">
+    <% f.label :body %>
+    <%= f.text_area :body, class: 'form-control' %>
+  </div><br/>
+  <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+  <%= f.submit 'Send', class: 'btn btn-primary' %>
+  </div>
+<% end %>
+</div>
+</div>  

@@ -1,0 +1,16 @@
+
+  <figure class="text-center">
+    <blockquote class="blockquote">
+      <h1 class="fw-bold">Edit Project</h1>
+      <button type="button" class="btn btn-light btn-sm" disabled>
+        <img src="https://img.favpng.com/2/16/1/pens-fountain-pen-paper-clip-art-png-favpng-P2r5sPmAdUXCfX2LmsFbQcGc5.jpg" alt="Logo" width="20" height="20" class="d-inline-block align-text-top">
+        <%= current_user.email %>
+      </button>
+    </blockquote>
+  </figure> 
+  
+  <%= render 'projects/sidebar' %>
+
+  <%= render "form", project: @project %>
+  
+  <% link_to "Back to projects", projects_path, class:"btn btn-secondary" %>

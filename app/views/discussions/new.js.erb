@@ -1,0 +1,1 @@
+document.querySelector("#comment-form-<%= @discussion.parent_id %>").innerHTML = ("<%= j render 'comment_form', discussion: @discussion %>")

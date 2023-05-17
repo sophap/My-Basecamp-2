@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <head>
+  <figure class="text-center">
+  <blockquote class="blockquote">
+      <h1 class="fw-bold"><%= @project.name %></h1>
+      <button type="button" class="btn btn-light btn-sm" disabled>
+      
+        <img src="https://img.favpng.com/2/16/1/pens-fountain-pen-paper-clip-art-png-favpng-P2r5sPmAdUXCfX2LmsFbQcGc5.jpg" alt="Logo" width="20" height="20" class="d-inline-block align-text-top">
+        created by:
+        <%= current_user.email %>
+       
+      </button>
+  </blockquote>
+</figure> 
+  </head>
+  <%= render 'projects/navbar' %>
+  <body>
+  <h3><%= @project.description %></h3>
+  <p>Members:</p>
+  
+  <button type="button" class="btn btn-light" disabled>
+  <img src="https://img.favpng.com/2/16/1/pens-fountain-pen-paper-clip-art-png-favpng-P2r5sPmAdUXCfX2LmsFbQcGc5.jpg" alt="Logo" width="20" height="20" class="d-inline-block align-text-top">
+  <%= current_user.email %>
+  </button>
+  <br/>
+  <% if current_user && current_user.admin? %>
+    <h5>Add new Thread</h5>
+    <%= render 'discussions/form' %>
+    <%= render 'discussions/discussions' %>
+  <% else %>
+    <%= render 'discussions/discussions' %>
+  <% end %>
+<br/>
+<br/>
+<%= form_with(model: @upload, url: project_uploads_path(@project), local: true) do |form| %>
+  <div class="field form-group d-grid gap-2 col-9 mx-auto">
+  <%= form.label :uploads, "Upload Attachment" %>
+  <%= form.file_field :attachments, multiple: true, name: 'upload[attachments][]', class: "form-control" %>
+  </div>
+<br/>
+  <div class="actions d-grid gap-2 d-md-block col-3 mx-auto">
+    <%= form.submit "Save", class:'btn btn-secondary' %>
+  </div>
+<% end %><br/>
+
+    <% @project.uploads.each do |upload|%>
+      <div style="width:300px; height:300px;">
+        <div class="card">
+          <div class="card-body">
+              <%= link_to upload.filename, project_upload_path(@project, upload), class:"message-upload" %>
+          </div>
+          <div class="card-footer">
+          <%= button_to "Delete", project_upload_path(@project, upload), method: :delete, data: { confirm: "Are you sure you want to delete this upload?" } %>
+          </div>
+        </div>
+      </div>
+  <%end%><br/>
+  </body>
+</html>
+
+
+

@@ -1,0 +1,2 @@
+module Discussions::CommentsHelper
+end

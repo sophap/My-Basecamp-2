@@ -1,0 +1,45 @@
+
+<% if user_signed_in? %>
+
+  <figure class="text-center">
+    <blockquote class="blockquote">
+        <h1 class="fw-bold">Projects</h1>
+    </blockquote>
+  </figure>  
+  
+
+  <div id="projects">
+    <% @projects.each do |project| %>
+      <% if project.user == current_user %>
+      <div class="card" style="width: 18rem;">
+      <h4 class="card-header text-bg-light"> <%= link_to project.name, project%>
+      <br/>
+      <button type="button" class="btn btn-light btn-sm" disabled>
+        <img src="https://img.favpng.com/2/16/1/pens-fountain-pen-paper-clip-art-png-favpng-P2r5sPmAdUXCfX2LmsFbQcGc5.jpg" alt="Logo" width="20" height="20" class="d-inline-block align-text-top">
+        <%= current_user.email %>
+      </button>
+    </h4>
+        <div class="card-body">
+        <h6 class="card-title"> <%= project.description %></h6>
+          <p class="card-text"></p>
+          </div>
+          <div class="card-footer btn-group text-bg-secondary" role="group" aria-label="Basic example">
+          <%= button_to "Delete Project", project, method: :delete, data: { confirm: "Are you sure?" }, class:"btn btn-secondary btn-sm" %>
+        </div>
+        <% end %>
+        </div>
+      </div>
+    <% end %> 
+  </div>
+<% else %>
+
+<figure class="text-center">
+    <blockquote class="blockquote">
+                <h1 class="card-title"><strong>COLLABORATE</strong></h1>
+                <p class="card-text">A project management tool for developers</p>
+                <%= link_to "Sign Up", new_user_registration_path, class:"btn btn-primary" %>
+                <%= link_to "Login", new_user_session_path, class:"btn btn-primary" %>    
+    </blockquote>
+</figure> 
+
+<% end %>

@@ -1,0 +1,27 @@
+<figure class="text-center">
+    <blockquote class="blockquote">
+      <h1 class="fw-bold">Edit</h1>
+      <button type="button" class="btn btn-light btn-sm" disabled>
+        <img src="https://img.favpng.com/2/16/1/pens-fountain-pen-paper-clip-art-png-favpng-P2r5sPmAdUXCfX2LmsFbQcGc5.jpg" alt="Logo" width="20" height="20" class="d-inline-block align-text-top">
+        <%= current_user.email %>
+      </button>
+    </blockquote>
+  </figure> 
+  <div class="card">
+  <div class="card-body">
+  <%= form_for [@project, @discussion, @comment], url: project_discussion_comment_path(@project, @discussion, @comment) do |f| %>
+    <div class="form-group">
+      <% f.label :body %>
+      <%= f.text_area :body, name: 'comment[body]', class: "form-control" %>
+    </div><br/>
+    <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+    <%= f.submit 'Update Message', class: 'btn btn-primary' %>
+    <%= link_to 'Cancel', project_path(@project), class: 'btn btn-secondary' %>
+    </div>
+  <% end %>
+  </div>
+  </div> 
+  
+  
+  
+  

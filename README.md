@@ -1,62 +1,73 @@
 # Welcome to My Basecamp 2
+
 MyBaseCamp2 (A continuation of MyBaseCamp1) is a web-based project management tool developed using Ruby on Rails framework. It allows users to:
+
 * create and manage projects, 
 * create and manage attachments for each project, 
-* view discussions under each project, and
-* creates and manages comments under each discussion.
+* view threads under each project, and
+* creates and manages messages under each thread.
 
-NOTE: Only admin's are allowed to create and manage discussions.
+NOTE: Only admin's are allowed to create and manage threads.
+
+## DEPLOYMENT URL
+
+* My BaseCamp 2 url: https://my-basecamp2.fly.dev/
 
 ## Task
-Features User Registration Users can create, view, and delete their accounts.
+* Features User Registration Users can create, view, and delete their accounts.
+* Session Users can log in and log out of their accounts.
+* Role Permission Admin privileges can be granted or removed by an existing admin user.
 
-Session Users can log in and log out of their accounts.
+* Users can create, view, edit, and delete:
 
-Role Permission Admin privileges can be granted or removed by an existing admin user.
+* * projects,
+* * messages within each thread,
+* * view threads within each project, and
+* * create, view and delete attachments within each projects.
 
-Users can create, view, edit, and delete:
-* projects,
-* comments within each discussion,
-* view discussions within each project, and
-* create, view and delete attachments within each projects.
-
-NOTE: Only Admins can create, edit and delete discussions.
+NOTE: Only Admins can create, edit and delete threads.
 
 ## Description
 Users can create, view, edit, and delete:
+
 * projects,
-* comments within each discussion,
-* view discussions within each project, and
+* messages within each thread,
+* view threads within each project, and
 * create, view and delete attachments within each projects.
 
-NOTE: Only Admins can create, edit and delete discussions.
+NOTE: Only Admins can create, edit and delete threads.
 
 ## Installation
-Install Ruby on Rails framework. Clone the repository from Github. Navigate to the project directory and install the required gems. Run the server.
+* Install Ruby on Rails framework.
+* Clone the repository. 
+* Navigate to the project directory and install the required gems. 
+* Run the server.
 
 ## Usage
-How to Set First Admin User from console
+* How to Set First Admin User from console
 
-* rails console
-* user = User.find(1)
-* user.admin = true
-* user.save
+* * rails console
+* * user = User.find(1)
+* * user.admin = true
+* * user.save
 
-Note: after admin is set subsequent users can be set from edit on admin panel
+NOTE: after admin is set subsequent users can be set from edit on admin panel or from the sign-up page.
 
-Run server
+* To run server:
 
-bundle install
+* * bundle install
+* * rails db:migrate
+* * rails server
 
-rails server
+* OR
 
-if port keeps showing already in use run
-
-bundle exec puma -C config/puma.rb -b tcp://127.0.0.1:3001
+* * https://my-basecamp2.fly.dev/
+* * Sign in to the above url as an admin with:
+* * * Username: sophieright@gmail.com
+* * * Password: right123
 
 ### The Core Team
 ./my_project  Right Sophia Praise
 
 <span><i>Made at <a href='https://qwasar.io'>Qwasar SV -- Software Engineering School</a></i></span>
 <span><img alt='Qwasar SV -- Software Engineering School's Logo' src='https://storage.googleapis.com/qwasar-public/qwasar-logo_50x50.png' width='20px'></span>
-
